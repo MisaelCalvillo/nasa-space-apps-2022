@@ -14,8 +14,8 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(6);
-camera.position.setX(0);
+camera.position.setZ(200);
+camera.position.setX(10);
 
 renderer.render(scene, camera);
 
@@ -77,14 +77,34 @@ const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.SphereGeometry(100, 32, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: normalTexture,
   })
 );
 
+const quake = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32 ))
+const quake2 = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32 ))
+const quake3 = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32 ))
+const quake4 = new THREE.Mesh(new THREE.SphereGeometry(8, 32, 32 ))
+
 scene.add(moon);
+scene.add(quake);
+quake.position.setX(100)
+
+scene.add(quake2);
+quake2.position.setX(-100)
+
+scene.add(quake3);
+quake3.position.setX(100)
+
+scene.add(quake4);
+quake4.position
+
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.target.set( 0, 0, 0 );
+controls.update();
 
 // moon.position.z = 30;
 // moon.position.setX(-10);
@@ -120,7 +140,7 @@ function animate() {
   // torus.rotation.y += 0.005;
   // torus.rotation.z += 0.01;
 
-  moon.rotation.y += 0.002;
+  // moon.rotation.y += 0.002;
 
   // controls.update();
 

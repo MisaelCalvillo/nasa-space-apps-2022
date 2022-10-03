@@ -16,6 +16,15 @@ canvas {
   font-style: normal;
 }
 
+#info { 
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
+
 
 main {
   width: 100vw;
@@ -40,6 +49,7 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
+  /* cursor: pointer; */
 }
 
 
